@@ -1,0 +1,38 @@
+{% extends 'studyonline/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} exam_results page {% endblock %}</title>
+</head>
+
+<body>
+<!-- ======= examresult Section ======= -->
+    
+{% block examresult %}
+<div class="container-fluid">
+    {% if grade > 80 %}
+    <div class="alert alert-success">
+       <!--HINT Display passed info -->
+    </div>
+        {% else %}
+        <div class="alert alert-danger">
+            <!--HINT Display failed info -->
+        </div>
+        <a class="btn btn-link text-danger" href="{% url 'studyonline:course_details' course.id %}">Re-test</a>
+        {% endif %}
+        <div class="card-columns-vertical mt-1">
+        <h5 class="">Exam results</h5>
+            <!--HINT Display exam results-->
+        </div>
+    </div>
+{% endblock %}
+<!--end examresult section-->
+</body>
+
+</html>
+
+

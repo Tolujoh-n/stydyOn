@@ -1,0 +1,36 @@
+{% extends 'studyonline/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} course_details page {% endblock %}</title>
+</head>
+
+<body>
+<!-- ======= course_details Section ======= -->
+    
+{% block course_details %}
+<!-- Page content -->
+<div class="container-fluid">
+    <h2>{{ course.name }}</h2>
+    <div class="card-columns-vertical">
+        {% for lesson in course.lesson_set.all %}
+            <div class="card mt-1">
+                <div class="card-header"><h5>Lesson {{lesson.order|add:1}}: {{lesson.title}}</h5></div>
+                <div class="card-body">{{lesson.content}}</div>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}
+<!--end course_details section-->
+
+</body>
+</html>
+
+
+

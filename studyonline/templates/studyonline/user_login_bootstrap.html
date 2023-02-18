@@ -1,0 +1,40 @@
+{% extends 'studyonline/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} login page {% endblock %}</title>
+</head>
+
+<body>
+    <!-- ======= login Section ======= -->
+    
+{% block user_login %}
+<!-- Stylize Login form -->
+<form action="{% url 'studyonline:login' %}" method="post">
+    {% csrf_token %}
+    <div class="container"> <!--Style root div with .container class -->
+        <h1>Login</h1>
+        <div class="form-group"> <!--Style second div with .form-group class -->
+          <label for="username"><b>User Name</b></label>
+          <input id="username" class = "form-control" type="text" placeholder="Enter User Name: " name="username" required> <!--Style input with .form-control class -->
+          <label for="psw"><b>Password</b></label>
+          <input id="psw" class = "form-control" type="password"  placeholder="Enter Password: " name="psw" required> <!--Style input with .form-control class -->
+        </div>
+        {% if message %}
+          <div class="alert alert-warning"> <!--Style the message paragraph with .alert and .alert-warning class -->
+            {{ message }}
+          </div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">Login</button> <!--Style button with .btn and .btn-primary class -->
+    </div>
+</form>
+{% endblock %}
+<!--end login section-->
+
+</body>
+</html>
+
